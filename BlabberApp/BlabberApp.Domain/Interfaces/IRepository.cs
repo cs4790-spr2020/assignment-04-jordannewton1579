@@ -1,15 +1,13 @@
-using BlabberApp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 
-namespace BlabberApp.Domain.Interfaces
-{
-    public interface IRepository<T> where T : BaseDatum
+namespace BlabberApp.Domain.Interfaces {
+    public interface IRepository<T> where T : IEntity 
     {
-        void Add(T entity);
-        void Remove(T entity);
-        void Update(T entity);
-        IEnumerable<T> GetAll();
-        T GetBySysId(string sysId);
-        T GetByUserId(string userId);
+       void Add(T entity);
+       void Remove(T entity);
+       void Update(T entity);
+       IEnumerable<T> GetAll();
+       T GetById(Guid sysId);
     }
 }
